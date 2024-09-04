@@ -18,7 +18,7 @@ WORKDIR /workspace/prusti-dev-orig
 
 RUN ./x.py setup
 
-RUN ./x.py build --all --release
+# RUN ./x.py build --all --release
 
 COPY ./workspace/prusti-dev /workspace/prusti-dev
 
@@ -29,7 +29,7 @@ RUN ./x.py setup
 COPY ./workspace/symbolic-execution /workspace/symbolic-execution
 COPY ./workspace/pcs /workspace/pcs
 
-RUN ./x.py build --all --release
+# RUN ./x.py build --all --release
 
 COPY ./container-files/run-eval.sh /workspace/run-eval.sh
 
