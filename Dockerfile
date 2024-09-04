@@ -3,12 +3,11 @@ FROM rust:latest
 # For debugging, some useful tools
 RUN apt-get update && apt-get install -y vim
 
-# Install Java
+# Install Java and other required dependencies
 RUN apt-get update && \
-    apt-get install -y openjdk-17-jdk && \
+    apt-get install -y openjdk-17-jdk psmisc && \
     apt-get clean && \
     rm -rf /var/lib/apt/lists/*
-
 
 # Set JAVA_HOME environment variable
 ENV JAVA_HOME=/usr/lib/jvm/java-17-openjdk-amd64
@@ -30,7 +29,7 @@ RUN ./x.py setup
 COPY ./workspace/symbolic-execution /workspace/symbolic-execution
 COPY ./workspace/pcs /workspace/pcs
 
-# RUN ./x.py build --all --release
+RUN ./x.py build --all --release
 
 COPY ./container-files/run-eval.sh /workspace/run-eval.sh
 
