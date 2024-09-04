@@ -13,13 +13,13 @@ RUN apt-get update && \
 # Set JAVA_HOME environment variable
 ENV JAVA_HOME=/usr/lib/jvm/java-17-openjdk-amd64
 
-# COPY ./workspace/prusti-dev-orig /workspace/prusti-dev-orig
+COPY ./workspace/prusti-dev-orig /workspace/prusti-dev-orig
 
-# WORKDIR /workspace/prusti-dev-orig
+WORKDIR /workspace/prusti-dev-orig
 
-# RUN ./x.py setup
+RUN ./x.py setup
 
-# RUN ./x.py build --all
+RUN ./x.py build --all
 
 COPY ./workspace/prusti-dev /workspace/prusti-dev
 
