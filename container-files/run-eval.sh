@@ -16,10 +16,7 @@ run_test() {
 > /workspace/time.txt
 
 # Run test for prusti-dev
-run_test /workspace/prusti-dev
+run_test /workspace/prusti-dev || exit 1
 
 # Run test for prusti-dev-orig
-run_test /workspace/prusti-dev-orig
-
-# Return to the original directory
-cd /workspace
+run_test /workspace/prusti-dev-orig || exit 1
