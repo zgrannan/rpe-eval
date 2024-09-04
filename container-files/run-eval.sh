@@ -3,8 +3,9 @@
 # Function to run test and record time
 run_test() {
     local dir=$1
-    local start_time=$(date +%s)
     cd "$dir"
+    ./x.py build --all --release
+    local start_time=$(date +%s)
     ./test-rpe.sh --old
     local end_time=$(date +%s)
     local total_time=$((end_time - start_time))
